@@ -25,7 +25,6 @@ public class DesignController {
         for (Tire.Type type : types) {
 //            model.addAttribute(type.toString().toLowerCase(), )
         }
-
         return "design.html";
     }
 }
