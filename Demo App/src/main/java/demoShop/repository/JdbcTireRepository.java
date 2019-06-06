@@ -1,14 +1,17 @@
 package demoShop.repository;
 
-import demoShop.parts.Tire;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-
 import java.sql.ResultSet;
+import demoShop.parts.Tire;
 import java.sql.SQLException;
+import java.util.Collection;
 
-@Repository
+
+import org.springframework.stereotype.Component;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Component
 public class JdbcTireRepository implements TireRepository {
     private JdbcTemplate jdbc;
 
@@ -18,8 +21,8 @@ public class JdbcTireRepository implements TireRepository {
     }
 
     @Override
-    public Iterable<Tire> findAll() {
-        return jdbc.query("select id, manufacturer, type from Tires where id=?", this::mapRowToTire);
+    public Collection<Tire> findAll() {
+        return jdbc.query("select * from Tires", this::mapRowToTire);
     }
 
     @Override
@@ -29,7 +32,13 @@ public class JdbcTireRepository implements TireRepository {
 
     @Override
     public Tire findTire(Long id) {
-        return jdbc.queryForObject("select id, manufacturer, type from Tires where id=?", this::mapRowToTire, id);
+        return jdbc.queryForObject("select * from Tires where id=?", this::mapRowToTire, id);
+    }
+
+    @Override
+    public int getTireCount(Long id) {
+        Integer count = jdbc.queryForObject("select count from TiresCount where id=?", this::mapRowToTireCount, id);
+        return count == null ? 0 : count;
     }
 
     @Override
@@ -49,5 +58,10 @@ public class JdbcTireRepository implements TireRepository {
                 rs.getString("manufacturer"),
                 Tire.Type.valueOf(rs.getString("type")
                 ));
+    }
+
+    private int mapRowToTireCount(ResultSet rs, int rowNum)
+            throws SQLException {
+        return rs.getInt("count");
     }
 }

@@ -1,0 +1,62 @@
+-- noinspection SqlWithoutWhereForFile
+
+create table if not exists Tires
+(
+    id serial primary key,
+    manufacturer varchar(25) not null,
+    type varchar(10) not null
+);
+
+create table if not exists TiresCount
+(
+    id serial not null,
+    tire_id int not null,
+    foreign key(tire_id) references Tires(id),
+    count int not null
+);
+
+delete from TIRES;
+delete from TIRESCOUNT;
+
+insert into TIRES (MANUFACTURER, TYPE)
+values ('GOODYEAR', 'SUMMER');
+insert into TIRES (MANUFACTURER, TYPE)
+values ('GOODYEAR', 'WINTER');
+insert into TIRES (MANUFACTURER, TYPE)
+values ('GOODYEAR', 'ALL_SEASON');
+
+insert into TIRES (MANUFACTURER, TYPE)
+values ('YOKOHAMA', 'SUMMER');
+insert into TIRES (MANUFACTURER, TYPE)
+values ('YOKOHAMA', 'WINTER');
+insert into TIRES (MANUFACTURER, TYPE)
+values ('YOKOHAMA', 'ALL_SEASON');
+
+insert into TIRES (MANUFACTURER, TYPE)
+values ('BRIDGE_STONE', 'SUMMER');
+insert into TIRES (MANUFACTURER, TYPE)
+values ('BRIDGE_STONE', 'WINTER');
+insert into TIRES (MANUFACTURER, TYPE)
+values ('BRIDGE_STONE', 'ALL_SEASON');
+
+
+insert into TIRESCOUNT(tire_id, COUNT)
+values (1, 5);
+insert into TIRESCOUNT(tire_id, COUNT)
+values (2, 4);
+insert into TIRESCOUNT(tire_id, COUNT)
+values (3, 9);
+
+insert into TIRESCOUNT(tire_id, COUNT)
+values (4, 1);
+insert into TIRESCOUNT(tire_id, COUNT)
+values (5, 2);
+insert into TIRESCOUNT(tire_id, COUNT)
+values (6, 0);
+
+insert into TIRESCOUNT(tire_id, COUNT)
+values (7, 15);
+insert into TIRESCOUNT(tire_id, COUNT)
+values (8, 7);
+insert into TIRESCOUNT(tire_id, COUNT)
+values (9, 3);

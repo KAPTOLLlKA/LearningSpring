@@ -1,12 +1,9 @@
 package demoShop.parts;
 
-import java.sql.Date;
-
 public class Tire {
     private Long id;
     private String manufacturer;
     private Type type;
-    private Date soldAt;
 
     public Tire(Long id, String manufacturer, Type type) {
         this.id = id;
@@ -40,13 +37,5 @@ public class Tire {
 
     public void setType(Type type) {
         this.type = type;
-    }
-
-    public Date getSoldAt() {
-        return soldAt;
-    }
-
-    public void setSoldAt(Date soldAt) {
-        this.soldAt = soldAt;
     }
 }
