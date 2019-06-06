@@ -1,38 +1,26 @@
 package demoShop.controlers;
 
-import demoShop.parts.Tire;
-import demoShop.repository.TireRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.stereotype.Controller;
+import demoShop.parts.User;
+import demoShop.repository.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/tire")
+@RequestMapping("/users")
 public class HomeController {
-    private final TireRepository tireRepo;
+    private final UserRepository userRepo;
 
     @Autowired
-    public HomeController(TireRepository tireRepo) {
-        this.tireRepo = tireRepo;
+    public HomeController(UserRepository userRepo) {
+        this.userRepo = userRepo;
     }
 
     @GetMapping
-    public Collection<Tire> home() {
-        return tireRepo.findAll();
-    }
-
-    private List<Tire> filterByType(
-            List<Tire> ingredients, Tire.Type type) {
-        return ingredients
-                .stream()
-                .filter(x -> x.getType().equals(type))
-                .collect(Collectors.toList());
+    public Collection<User> users() {
+        return userRepo.findAll();
     }
 }

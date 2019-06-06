@@ -1,62 +1,21 @@
--- noinspection SqlWithoutWhereForFile
-
-create table if not exists Tires
+create table if not exists Users
 (
     id serial primary key,
-    manufacturer varchar(25) not null,
-    type varchar(10) not null
+    password varchar(50) not null,
+    username varchar(20) not null,
+    mail varchar(100) not null,
+    about varchar(500)
 );
 
-create table if not exists TiresCount
-(
-    id serial not null,
-    tire_id int not null,
-    foreign key(tire_id) references Tires(id),
-    count int not null
-);
-
-delete from TIRES;
-delete from TIRESCOUNT;
-
-insert into TIRES (MANUFACTURER, TYPE)
-values ('GOODYEAR', 'SUMMER');
-insert into TIRES (MANUFACTURER, TYPE)
-values ('GOODYEAR', 'WINTER');
-insert into TIRES (MANUFACTURER, TYPE)
-values ('GOODYEAR', 'ALL_SEASON');
-
-insert into TIRES (MANUFACTURER, TYPE)
-values ('YOKOHAMA', 'SUMMER');
-insert into TIRES (MANUFACTURER, TYPE)
-values ('YOKOHAMA', 'WINTER');
-insert into TIRES (MANUFACTURER, TYPE)
-values ('YOKOHAMA', 'ALL_SEASON');
-
-insert into TIRES (MANUFACTURER, TYPE)
-values ('BRIDGE_STONE', 'SUMMER');
-insert into TIRES (MANUFACTURER, TYPE)
-values ('BRIDGE_STONE', 'WINTER');
-insert into TIRES (MANUFACTURER, TYPE)
-values ('BRIDGE_STONE', 'ALL_SEASON');
-
-
-insert into TIRESCOUNT(tire_id, COUNT)
-values (1, 5);
-insert into TIRESCOUNT(tire_id, COUNT)
-values (2, 4);
-insert into TIRESCOUNT(tire_id, COUNT)
-values (3, 9);
-
-insert into TIRESCOUNT(tire_id, COUNT)
-values (4, 1);
-insert into TIRESCOUNT(tire_id, COUNT)
-values (5, 2);
-insert into TIRESCOUNT(tire_id, COUNT)
-values (6, 0);
-
-insert into TIRESCOUNT(tire_id, COUNT)
-values (7, 15);
-insert into TIRESCOUNT(tire_id, COUNT)
-values (8, 7);
-insert into TIRESCOUNT(tire_id, COUNT)
-values (9, 3);
+insert into Users (password, username, mail, about)
+values ('password1', 'Thor', 'mjolnir@gmail.com', 'God with best hairs in galaxy!');
+insert into Users (password, username, mail, about)
+values ('password2', 'Loki', 'loki@gmail.com', 'You do not know me');
+insert into Users (password, username, mail)
+values ('password3', 'BlackWidow', 'black_widow@mail.ru');
+insert into Users (password, username, mail, about)
+values ('password4', 'IronMan', 'jarvis@gmail.com', 'A genius, billionaire, playboy, philanthropist');
+insert into Users (password, username, mail, about)
+values ('password5', 'Tchala', 'vakanda@gmail.com', 'For Vakanda!');
+insert into Users (password, username, mail, about)
+values ('password6', 'CaptainAmerica', 'discipline_and_justice@gmail.com', 'Guy, that was in a cube of ice for 70 years.');
