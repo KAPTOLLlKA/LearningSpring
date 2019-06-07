@@ -5,11 +5,13 @@ import demoShop.parts.User;
 import java.util.Collection;
 
 public interface UserRepository {
-    Collection<User> findAll();
+    Collection<User> getAllUsers();
 
     void deleteUser(int id);
 
-    User findUser(int id);
+    User getUser(int id);
+
+    User updateUser(User user);
 
     User addUser(User user);
 }
