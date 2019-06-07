@@ -1,13 +1,12 @@
-package demoShop.repository;
+package demoShop.repositories;
 
 import java.sql.ResultSet;
 
-import demoShop.api.UserRepository;
 import demoShop.parts.User;
+import demoShop.api.UserRepository;
 
-import java.sql.SQLException;
 import java.util.Collection;
-import java.util.UUID;
+import java.sql.SQLException;
 
 import org.springframework.stereotype.Component;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,15 +24,6 @@ public class JdbcUserRepository implements UserRepository {
     @Override
     public Collection<User> getAllUsers() {
         return jdbc.query("select * from Users", this::mapRowToUser);
-    }
-
-    @Override
-    public User createTokenFor(User user) {
-        jdbc.update("insert into UsersTokens (user_id, user_token) values (?, ?)",
-                user.getId(),
-                UUID.randomUUID().toString()
-        );
-        return user;
     }
 
     @Override

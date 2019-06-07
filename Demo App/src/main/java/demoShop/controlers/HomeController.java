@@ -1,10 +1,9 @@
 package demoShop.controlers;
 
 import demoShop.parts.User;
-import demoShop.repository.UserRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import demoShop.api.UserService;
+import demoShop.parts.UserInfo;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
@@ -12,15 +11,41 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/users")
 public class HomeController {
-    private final UserRepository userRepo;
+    private final UserService userService;
 
     @Autowired
-    public HomeController(UserRepository userRepo) {
-        this.userRepo = userRepo;
+    public HomeController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
-    public Collection<User> users() {
-        return userRepo.findAll();
+    @ResponseBody
+    public Collection<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+    @PostMapping("/login")
+    public User login(@RequestBody UserInfo userInfo) {
+        return userService.login(userInfo);
+    }
+
+    @PostMapping("/logout")
+    public void logout(@RequestBody UserInfo userInfo) {
+        userService.logout(userInfo);
+    }
+
+    @PutMapping
+    public User addUser(@RequestBody User user) {
+        return userService.addUser(user);
+    }
+
+    @GetMapping("/{id}")
+    public User getUser(@PathVariable Integer id) {
+        return userService.getUser(id);
+    }
+
+    @PostMapping
+    public void updateUser(@RequestBody User user) {
+        userService.updateUser(user);
     }
 }

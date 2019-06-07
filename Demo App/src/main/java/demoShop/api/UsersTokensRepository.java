@@ -1,4 +1,7 @@
 package demoShop.api;
 
-public interface UserTokenRepository {
+public interface UsersTokensRepository {
+    void createTokenFor(int id);
+
+    void deleteUserToken(int id);
 }
