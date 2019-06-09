@@ -1,8 +1,8 @@
 package demoShop.controlers;
 
 import demoShop.parts.User;
-import demoShop.api.UserService;
 import demoShop.parts.UserInfo;
+import demoShop.api.UserService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
