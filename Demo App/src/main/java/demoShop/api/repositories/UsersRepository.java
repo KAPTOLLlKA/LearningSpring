@@ -1,19 +1,19 @@
-package demoShop.api;
+package demoShop.api.repositories;
 
-import demoShop.parts.User;
+import demoShop.data.user.User;
 
 import java.util.Collection;
 
-public interface UserRepository {
+public interface UsersRepository {
     Collection<User> getAllUsers();
 
     User getUser(int id);
 
     User getUser(String username, String password);
 
-    User updateUser(User user);
+    void updateUser(User user);
 
-    User addUser(User user);
+    void addUser(User user);
 
     void deleteUser(int id);
 }

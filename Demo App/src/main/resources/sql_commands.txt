@@ -27,4 +27,3 @@ insert into Users (password, username, mail, about)
 values ('password5', 'Tchala', 'vakanda@gmail.com', 'For Vakanda!');
 insert into Users (password, username, mail, about)
 values ('password6', 'CaptainAmerica', 'discipline_and_justice@gmail.com', 'Guy, that was in a cube of ice for 70 years.');
-

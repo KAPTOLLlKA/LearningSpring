@@ -1,18 +1,34 @@
 package demoShop.configs;
 
-import demoShop.api.UserRepository;
-import demoShop.api.UsersTokensRepository;
+import demoShop.api.repositories.UsersRepository;
+import demoShop.api.repositories.UsersTokensRepository;
+import demoShop.interceptors.HomeInterceptor;
 import org.springframework.jdbc.core.JdbcTemplate;
-import demoShop.services.JdbcRepositoryUserService;
+import demoShop.services.JdbcRepositoryUsersService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-public class Configs {
+public class Configs implements WebMvcConfigurer {
+    private HomeInterceptor interceptor;
+
+    @Autowired
+    public void setInterceptor(HomeInterceptor interceptor) {
+        this.interceptor = interceptor;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(interceptor).addPathPatterns("/users/**", "/topics/**").excludePathPatterns("/users/login", "/users/logout");
+    }
+
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -33,7 +49,7 @@ public class Configs {
     }
 
     @Bean
-    public JdbcRepositoryUserService userService(UserRepository userRepo, UsersTokensRepository usersTokensRepo) {
-        return new JdbcRepositoryUserService(userRepo, usersTokensRepo);
+    public JdbcRepositoryUsersService userService(UsersRepository userRepo, UsersTokensRepository usersTokensRepo) {
+        return new JdbcRepositoryUsersService(userRepo, usersTokensRepo);
     }
 }

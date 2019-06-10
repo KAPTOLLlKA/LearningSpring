@@ -2,8 +2,8 @@ package demoShop.repositories;
 
 import java.sql.ResultSet;
 
-import demoShop.parts.User;
-import demoShop.api.UserRepository;
+import demoShop.data.user.User;
+import demoShop.api.repositories.UsersRepository;
 
 import java.util.Collection;
 import java.sql.SQLException;
@@ -13,11 +13,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
-public class JdbcUserRepository implements UserRepository {
+public class JdbcUsersRepository implements UsersRepository {
     private JdbcTemplate jdbc;
 
     @Autowired
-    public JdbcUserRepository(JdbcTemplate jdbc) {
+    public JdbcUsersRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
 
@@ -37,25 +37,23 @@ public class JdbcUserRepository implements UserRepository {
     }
 
     @Override
-    public User updateUser(User user) {
+    public void updateUser(User user) {
         jdbc.update("update Users set password=?, username=?, mail=?, about=? where id=?",
                 user.getPassword(),
                 user.getUsername(),
                 user.getMail(),
                 user.getAbout(),
                 user.getId());
-        return user;
     }
 
     @Override
-    public User addUser(User user) {
+    public void addUser(User user) {
         jdbc.update("insert into Users (password, username, mail, about) values (?, ?, ?, ?)",
                 user.getPassword(),
                 user.getUsername(),
                 user.getMail(),
                 user.getAbout()
         );
-        return user;
     }
 
     @Override

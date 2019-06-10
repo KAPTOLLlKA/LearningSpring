@@ -1,4 +1,4 @@
-package demoShop.parts;
+package demoShop.data.user;
 
 public class UserInfo {
     private String username;
