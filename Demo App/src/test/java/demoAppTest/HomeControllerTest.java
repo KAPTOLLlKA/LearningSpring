@@ -2,7 +2,7 @@ package demoAppTest;
 
 import org.junit.Test;
 import demoShop.DemoMain;
-import demoShop.controlers.HomeController;
+import demoShop.controlers.UsersController;
 import org.junit.runner.RunWith;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(HomeController.class)
+@WebMvcTest(UsersController.class)
 @ContextConfiguration(classes = DemoMain.class)
 public class HomeControllerTest {
     @Autowired
@@ -25,8 +25,8 @@ public class HomeControllerTest {
     public void testHomePage() throws Exception {
         mockMvc.perform(get("/home"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("home.html"));
-        mockMvc.perform(get("/home.html"))
+                .andExpect(view().name("login.html"));
+        mockMvc.perform(get("/login.html"))
                 .andExpect(content().string(containsString("Welcome")));;
     }
 }

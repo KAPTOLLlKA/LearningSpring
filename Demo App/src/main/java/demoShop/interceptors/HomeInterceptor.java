@@ -1,10 +1,10 @@
 package demoShop.interceptors;
 
-import demoShop.api.repositories.UsersRepository;
-import demoShop.api.services.InterceptorService;
-import demoShop.api.repositories.UsersTokensRepository;
 import org.springframework.http.HttpMethod;
+import demoShop.api.services.InterceptorService;
 import org.springframework.stereotype.Component;
+import demoShop.api.repositories.UsersRepository;
+import demoShop.api.repositories.UsersTokensRepository;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,7 +30,7 @@ public class HomeInterceptor implements InterceptorService, HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        if (request.getMethod().equals(HttpMethod.OPTIONS.toString())) return true;
+        if (request.getMethod().equals(HttpMethod.OPTIONS.toString()) || request.getServletPath().contains("/logout/")) return true;
 
         return checkToken(request.getHeader("authorization"));
     }

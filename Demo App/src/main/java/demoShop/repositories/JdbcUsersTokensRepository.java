@@ -1,8 +1,8 @@
 package demoShop.repositories;
 
-import demoShop.api.repositories.UsersTokensRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.jdbc.core.JdbcTemplate;
+import demoShop.api.repositories.UsersTokensRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.ResultSet;

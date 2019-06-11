@@ -1,7 +1,7 @@
 package demoShop.services;
 
-import demoShop.api.services.TopicsService;
 import demoShop.data.title.Topic;
+import demoShop.api.services.TopicsService;
 import org.springframework.stereotype.Component;
 import demoShop.repositories.JdbcTopicsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
