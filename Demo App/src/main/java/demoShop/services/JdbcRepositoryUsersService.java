@@ -1,9 +1,12 @@
 package demoShop.services;
 
 import demoShop.data.user.User;
-import demoShop.api.services.UsersService;
 import demoShop.data.user.UserInfo;
+import demoShop.api.services.UsersService;
+import demoShop.exceptions.NotAllFieldsFilled;
 import demoShop.api.repositories.UsersRepository;
+import demoShop.exceptions.UsernameIsTakenException;
+import demoShop.exceptions.WrongCredentialsException;
 import demoShop.api.repositories.UsersTokensRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,7 +33,7 @@ public class JdbcRepositoryUsersService implements UsersService {
         if (user != null) {
             return usersTokensRepo.createTokenFor(user.getId());
         }
-        return null;
+        throw new WrongCredentialsException("Username or password is incorrect");
     }
 
     @Override
@@ -44,8 +47,15 @@ public class JdbcRepositoryUsersService implements UsersService {
     }
 
     @Override
-    public void addUser(User user) {
-        userRepo.addUser(user);
+    public void registerUser(User user) {
+        if (user.getMail() == null || user.getMail().isEmpty() ||
+                user.getPassword() == null || user.getPassword().isEmpty() ||
+                user.getUsername() == null || user.getUsername().isEmpty()) {
+            throw new NotAllFieldsFilled("Not all mandatory fields are filled");
+        }
+        if (!userRepo.registerUser(user)) {
+            throw new UsernameIsTakenException("Username is already taken");
+        }
     }
 
     @Override

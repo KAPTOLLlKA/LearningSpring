@@ -1,6 +1,6 @@
 package demoShop.repositories;
 
-import demoShop.data.title.Topic;
+import demoShop.data.topic.Topic;
 import org.springframework.stereotype.Component;
 import org.springframework.jdbc.core.JdbcTemplate;
 import demoShop.api.repositories.TopicsRepository;
@@ -58,7 +58,7 @@ public class JdbcTopicsRepository implements TopicsRepository {
     private Topic mapRowToTopic(ResultSet rs, int rowNum) throws SQLException {
         return new Topic(
                 rs.getInt("id"),
-                rs.getString("title"),
+                rs.getString("topic"),
                 rs.getString("content"),
                 rs.getString("posted_by"),
                 rs.getDate("posted_at")

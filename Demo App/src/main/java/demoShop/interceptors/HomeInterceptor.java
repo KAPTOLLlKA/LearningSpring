@@ -1,5 +1,6 @@
 package demoShop.interceptors;
 
+import demoShop.exceptions.UnauthorizedEcxeption;
 import org.springframework.http.HttpMethod;
 import demoShop.api.services.InterceptorService;
 import org.springframework.stereotype.Component;
@@ -30,8 +31,8 @@ public class HomeInterceptor implements InterceptorService, HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        if (request.getMethod().equals(HttpMethod.OPTIONS.toString()) || request.getServletPath().contains("/logout/")) return true;
+        if (request.getMethod().equals(HttpMethod.OPTIONS.toString()) || checkToken(request.getHeader("authorization"))) return true;
 
-        return checkToken(request.getHeader("authorization"));
+        throw new UnauthorizedEcxeption();
     }
 }

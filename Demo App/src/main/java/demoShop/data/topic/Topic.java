@@ -1,4 +1,4 @@
-package demoShop.data.title;
+package demoShop.data.topic;
 
 import java.sql.Date;
 

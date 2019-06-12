@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 import org.springframework.stereotype.Component;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.dao.DataAccessException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
@@ -33,7 +34,11 @@ public class JdbcUsersRepository implements UsersRepository {
 
     @Override
     public User getUser(String username, String password) {
-        return jdbc.queryForObject("select * from Users where password=? and username=?", this::mapRowToUser, password, username);
+        try {
+            return jdbc.queryForObject("select * from Users where password=? and username=?", this::mapRowToUser, password, username);
+        } catch (DataAccessException e) {
+            return null;
+        }
     }
 
     @Override
@@ -47,13 +52,18 @@ public class JdbcUsersRepository implements UsersRepository {
     }
 
     @Override
-    public void addUser(User user) {
-        jdbc.update("insert into Users (password, username, mail, about) values (?, ?, ?, ?)",
-                user.getPassword(),
-                user.getUsername(),
-                user.getMail(),
-                user.getAbout()
-        );
+    public boolean registerUser(User user) {
+        try {
+            jdbc.update("insert into Users (password, username, mail, about) values (?, ?, ?, ?)",
+                    user.getPassword(),
+                    user.getUsername(),
+                    user.getMail(),
+                    user.getAbout()
+            );
+            return true;
+        } catch (DataAccessException e) {
+            return false;
+        }
     }
 
     @Override

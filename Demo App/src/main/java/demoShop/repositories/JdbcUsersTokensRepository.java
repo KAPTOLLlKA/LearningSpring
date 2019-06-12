@@ -35,7 +35,11 @@ public class JdbcUsersTokensRepository implements UsersTokensRepository {
 
     @Override
     public Integer getUserIdForToken(String token) {
-        return jdbc.queryForObject("select * from UsersTokens where user_token=?", this::mapRowToUserId, token);
+        try {
+            return jdbc.queryForObject("select * from UsersTokens where user_token=?", this::mapRowToUserId, token);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     private int mapRowToUserId(ResultSet rs, int rowNum) throws SQLException {

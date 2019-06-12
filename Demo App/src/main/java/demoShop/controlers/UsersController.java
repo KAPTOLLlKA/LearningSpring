@@ -28,9 +28,9 @@ public class UsersController {
         return usersService.getUser(id);
     }
 
-    @PutMapping("/add")
-    public void addUser(@RequestBody User user) {
-        usersService.addUser(user);
+    @PostMapping("/register")
+    public void registerUser(@RequestBody User user) {
+        usersService.registerUser(user);
     }
 
     @PostMapping("/update")

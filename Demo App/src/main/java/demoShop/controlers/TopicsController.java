@@ -1,6 +1,6 @@
 package demoShop.controlers;
 
-import demoShop.data.title.Topic;
+import demoShop.data.topic.Topic;
 import demoShop.api.services.TopicsService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;

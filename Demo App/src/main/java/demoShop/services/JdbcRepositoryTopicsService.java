@@ -1,6 +1,6 @@
 package demoShop.services;
 
-import demoShop.data.title.Topic;
+import demoShop.data.topic.Topic;
 import demoShop.api.services.TopicsService;
 import org.springframework.stereotype.Component;
 import demoShop.repositories.JdbcTopicsRepository;

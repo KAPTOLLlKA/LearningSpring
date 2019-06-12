@@ -26,7 +26,7 @@ public class Configs implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(interceptor).addPathPatterns("/users/**", "/topics/**").excludePathPatterns("/users/login", "/users/logout");
+        registry.addInterceptor(interceptor).addPathPatterns("/users/**", "/topics/**").excludePathPatterns("/users/login", "/users/logout", "/users/logout/*", "/users/register");
     }
 
     @Bean

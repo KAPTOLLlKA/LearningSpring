@@ -2,7 +2,7 @@ create table if not exists Users
 (
     id       serial primary key,
     password varchar(50)  not null,
-    username varchar(20)  not null,
+    username varchar(20)  unique not null,
     mail     varchar(100) not null,
     about    varchar(500)
 );
@@ -13,6 +13,16 @@ create table if not exists UsersTokens
     user_id int not null,
     foreign key(user_id) references Users(id),
     user_token varchar(100) not null
+);
+
+create table if not exists Topics
+(
+    id serial primary key,
+    title varchar(50) not null,
+    content varchar(500),
+    posted_by varchar(20) not null,
+    foreign key(posted_by) references Users(username),
+    posted_at timestamp not null
 );
 
 insert into Users (password, username, mail, about)

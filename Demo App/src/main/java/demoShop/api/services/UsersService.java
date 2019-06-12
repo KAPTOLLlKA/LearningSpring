@@ -14,7 +14,7 @@ public interface UsersService {
 
     User getUser(int id);
 
-    void addUser(User user);
+    void registerUser(User user);
 
     void updateUser(User user);
 }

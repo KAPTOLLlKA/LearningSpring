@@ -1,6 +1,6 @@
 package demoShop.api.services;
 
-import demoShop.data.title.Topic;
+import demoShop.data.topic.Topic;
 
 import java.util.Collection;
 

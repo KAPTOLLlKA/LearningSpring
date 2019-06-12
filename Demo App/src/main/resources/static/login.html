@@ -3,29 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js_scripts/login.js"></script>
 </head>
 <body>
-    <h1>Login page</h1>
-    <hr>
-    <label>
-        <input type="text" placeholder="username"/>
-        <br>
-        <br>
-        <input type="text" placeholder="password"/>
-    </label>
+<h1>Login page</h1>
+<hr>
+<label>
+    <input id="username" type="text" placeholder="username"/>
     <br>
     <br>
-    <button type="button" onclick="login()">Login</button>
-    <br>
-    <br>
-    <a target="_top" href="register.html">Register</a>
-    <hr>
-
-
-    <script>
-        function login() {
-
-        }
-    </script>
+    <input id="password" type="password" placeholder="password"/>
+</label>
+<br>
+<br>
+<button type="button" onclick="login()">Login</button>
+<span id="wrong" style="color: #b22222; display: none">Wrong username or password</span>
+<br>
+<br>
+<a target="_top" href="register.html">Register</a>
+<hr>
 </body>
 </html>
