@@ -6,7 +6,7 @@ function register() {
         $.ajax({
             url: "/users/register",
             type: "POST",
-            contentType: 'application/json',
+            contentType: "application/json",
             data: JSON.stringify({
                 username: $('#username').val(),
                 mail: $('#mail').val(),
@@ -17,20 +17,10 @@ function register() {
                 window.location = "/login.html";
             },
             error: (jqXHR) => {
-                if (jqXHR.status === 406) {
-                    $('#taken').show();
-                    $('#pass').hide();
-                    $('#mandatory').hide();
-                } else if (jqXHR.status === 418) {
-                    $('#mandatory').show();
-                    $('#pass').hide();
-                    $('#taken').hide();
-                }
+                $('#wrong').html(JSON.parse(jqXHR.responseText).message);
             }
         });
     } else {
-        $('#pass').show();
-        $('#taken').hide();
-        $('#mandatory').hide();
+        $('#wrong').html("Passwords don't match");
     }
 }

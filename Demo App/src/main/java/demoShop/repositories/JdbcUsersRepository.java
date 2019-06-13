@@ -42,13 +42,18 @@ public class JdbcUsersRepository implements UsersRepository {
     }
 
     @Override
-    public void updateUser(User user) {
-        jdbc.update("update Users set password=?, username=?, mail=?, about=? where id=?",
-                user.getPassword(),
-                user.getUsername(),
-                user.getMail(),
-                user.getAbout(),
-                user.getId());
+    public boolean updateUser(User user) {
+        try {
+            jdbc.update("update Users set password=?, username=?, mail=?, about=? where id=?",
+                    user.getPassword(),
+                    user.getUsername(),
+                    user.getMail(),
+                    user.getAbout(),
+                    user.getId());
+            return true;
+        } catch (DataAccessException e) {
+            return false;
+        }
     }
 
     @Override

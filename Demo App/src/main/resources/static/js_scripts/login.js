@@ -2,19 +2,17 @@ function login() {
     $.ajax({
         url: "/users/login",
         type: "POST",
-        contentType: 'application/json',
+        contentType: "application/json",
         data: JSON.stringify({
             username: $('#username').val(),
             password: $('#password').val()
         }),
         success: function (token) {
-            document.cookie = 'user_token' + token;
-            window.location = "/users";
+            document.cookie = "user_token=" + token;
+            window.location = "/topics.html";
         },
         error: function (jqXHR) {
-            if (jqXHR.status === 401) {
-                $('#wrong').show();
-            }
+            $('#wrong').html(JSON.parse(jqXHR.responseText).message);
         }
     });
 }

@@ -3,8 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>User Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js_scripts/update_user.js"></script>
+    <script type="text/javascript" src="js_scripts/get_cookie.js"></script>
 </head>
 <body>
+<p>*-s are mandatory</p>
+<p id="username_c"></p>
+<label>
+    <input id="username" type="text" placeholder="username*"/>
+    <br>
+    <br>
+</label>
 
+<p id="mail_c"></p>
+<label>
+    <input id="mail" type="text" placeholder="email*"/>
+    <br>
+    <br>
+</label>
+
+<p id="about_c"></p>
+<label>
+    <input id="about" type="text" placeholder="about"/>
+    <br>
+    <br>
+</label>
+
+<label>
+    <input id="password" type="password" placeholder="password*"/>
+    <br>
+    <br>
+</label>
+
+<label>
+    <input id="re-type" type="password" placeholder="re-type password*"/>
+    <br>
+    <br>
+</label>
+<br>
+<button type="button" onclick="update_user()">Submit</button>
+<br>
+<br>
+<span id="wrong" style="color: #b22222"></span>
 </body>
 </html>

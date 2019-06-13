@@ -3,9 +3,11 @@ package demoShop.controlers;
 import demoShop.data.user.User;
 import demoShop.data.user.UserInfo;
 import demoShop.api.services.UsersService;
+import demoShop.data.user.UserToken;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 
 @RestController
@@ -23,9 +25,9 @@ public class UsersController {
         return usersService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
-    public User getUser(@PathVariable Integer id) {
-        return usersService.getUser(id);
+    @GetMapping("/id")
+    public User getUser(HttpServletRequest request) {
+        return usersService.getUser(request);
     }
 
     @PostMapping("/register")
@@ -34,8 +36,8 @@ public class UsersController {
     }
 
     @PostMapping("/update")
-    public void updateUser(@RequestBody User user) {
-        usersService.updateUser(user);
+    public void updateUser(@RequestBody User user, HttpServletRequest request) {
+        usersService.updateUser(user, request);
     }
 
     @PostMapping("/login")
@@ -43,8 +45,8 @@ public class UsersController {
         return usersService.login(userInfo);
     }
 
-    @PostMapping("/logout/{id}")
-    public void logout(@PathVariable Integer id) {
-        usersService.logout(id);
+    @PostMapping("/logout")
+    public void logout(@RequestBody UserToken userToken) {
+        usersService.logout(userToken);
     }
 }

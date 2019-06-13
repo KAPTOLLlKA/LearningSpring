@@ -58,7 +58,7 @@ public class JdbcTopicsRepository implements TopicsRepository {
     private Topic mapRowToTopic(ResultSet rs, int rowNum) throws SQLException {
         return new Topic(
                 rs.getInt("id"),
-                rs.getString("topic"),
+                rs.getString("title"),
                 rs.getString("content"),
                 rs.getString("posted_by"),
                 rs.getDate("posted_at")

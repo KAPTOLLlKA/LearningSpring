@@ -1,16 +1,16 @@
 package demoShop.configs;
 
-import demoShop.api.repositories.UsersRepository;
-import demoShop.api.repositories.UsersTokensRepository;
 import demoShop.interceptors.HomeInterceptor;
+import demoShop.api.repositories.UsersRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
-import demoShop.services.JdbcRepositoryUsersService;
 import org.springframework.context.annotation.Bean;
+import demoShop.services.JdbcRepositoryUsersService;
+import demoShop.api.repositories.UsersTokensRepository;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 import javax.sql.DataSource;
 import java.util.Properties;

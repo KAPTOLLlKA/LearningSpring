@@ -34,6 +34,11 @@ public class JdbcUsersTokensRepository implements UsersTokensRepository {
     }
 
     @Override
+    public void deleteUserToken(String token) {
+        jdbc.update("delete from UsersTokens where user_token=?", token);
+    }
+
+    @Override
     public Integer getUserIdForToken(String token) {
         try {
             return jdbc.queryForObject("select * from UsersTokens where user_token=?", this::mapRowToUserId, token);

@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>Topics Page</title>
+    <style>
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js_scripts/get_topics.js"></script>
+    <script type="text/javascript" src="js_scripts/get_cookie.js"></script>
+    <script type="text/javascript" src="js_scripts/logout.js"></script>
 </head>
 <body>
-
+<button type="button" id="post" onclick="window.location = '/add_topic.html'">New post</button>
+<button type="button" id="logout" onclick="logout()">Logout</button>
+<button type="button" id="user" onclick="window.location = '/user.html'">My account</button>
+<div id="topics" style="height: 100%; width: 50%; overflow: auto"></div>
 </body>
 </html>

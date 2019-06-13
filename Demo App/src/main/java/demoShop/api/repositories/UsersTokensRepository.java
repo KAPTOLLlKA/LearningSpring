@@ -5,5 +5,7 @@ public interface UsersTokensRepository {
 
     void deleteUserToken(int id);
 
+    void deleteUserToken(String token);
+
     Integer getUserIdForToken(String token);
 }

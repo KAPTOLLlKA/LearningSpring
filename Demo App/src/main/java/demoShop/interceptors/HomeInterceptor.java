@@ -1,9 +1,9 @@
 package demoShop.interceptors;
 
-import demoShop.exceptions.UnauthorizedEcxeption;
 import org.springframework.http.HttpMethod;
 import demoShop.api.services.InterceptorService;
 import org.springframework.stereotype.Component;
+import demoShop.exceptions.UnauthorizedEcxeption;
 import demoShop.api.repositories.UsersRepository;
 import demoShop.api.repositories.UsersTokensRepository;
 import org.springframework.web.servlet.HandlerInterceptor;
