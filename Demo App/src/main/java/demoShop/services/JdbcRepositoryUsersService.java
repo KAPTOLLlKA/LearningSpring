@@ -2,10 +2,11 @@ package demoShop.services;
 
 import demoShop.data.user.User;
 import demoShop.data.user.UserInfo;
-import demoShop.api.services.UsersService;
 import demoShop.data.user.UserToken;
+import demoShop.api.services.UsersService;
 import demoShop.exceptions.NotAllFieldsFilled;
 import demoShop.api.repositories.UsersRepository;
+import org.springframework.dao.DataAccessException;
 import demoShop.exceptions.UsernameIsTakenException;
 import demoShop.exceptions.WrongCredentialsException;
 import demoShop.api.repositories.UsersTokensRepository;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
+import java.util.UUID;
 
 public class JdbcRepositoryUsersService implements UsersService {
     private final UsersRepository userRepo;
@@ -33,7 +35,9 @@ public class JdbcRepositoryUsersService implements UsersService {
     public String login(UserInfo userInfo) {
         User user = userRepo.getUser(userInfo.getUsername(), userInfo.getPassword());
         if (user != null) {
-            return usersTokensRepo.createTokenFor(user.getId());
+            String token = UUID.randomUUID().toString();
+            usersTokensRepo.addTokenFor(user.getId(), token);
+            return token;
         }
         throw new WrongCredentialsException("Wrong username or password");
     }
@@ -41,6 +45,15 @@ public class JdbcRepositoryUsersService implements UsersService {
     @Override
     public void logout(UserToken userToken) {
         usersTokensRepo.deleteUserToken(userToken.getToken());
+    }
+
+    @Override
+    public void isUserTokenValid(UserToken token) {
+        try {
+            usersTokensRepo.getUserIdForToken(token.getToken());
+        } catch (DataAccessException e) {
+            throw new RuntimeException("Invalid authorization token");
+        }
     }
 
     @Override

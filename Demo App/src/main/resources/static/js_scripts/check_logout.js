@@ -6,8 +6,8 @@ window.onload = function () {
         data: JSON.stringify({
             token: getCookie("user_token")
         }),
-        success: function () {
-            window.location = "/topics.html";
+        error: function () {
+            window.location = "/login.html";
         }
     });
 };

@@ -9,6 +9,8 @@ public interface TopicsRepository {
 
     Topic getTopic(int id);
 
+    Collection<Topic> searchTopicByTitle(String title);
+
     void updateTopic(Topic topic);
 
     void addTopic(Topic topic);

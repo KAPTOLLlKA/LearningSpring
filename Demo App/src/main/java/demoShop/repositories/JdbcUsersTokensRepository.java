@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.UUID;
 
 @Component
 public class JdbcUsersTokensRepository implements UsersTokensRepository {
@@ -19,13 +18,11 @@ public class JdbcUsersTokensRepository implements UsersTokensRepository {
     }
 
     @Override
-    public String createTokenFor(int id) {
-        String token = UUID.randomUUID().toString();
+    public void addTokenFor(int id, String token) {
         jdbc.update("insert into UsersTokens (user_id, user_token) values (?, ?)",
                 id,
                 token
         );
-        return token;
     }
 
     @Override
@@ -40,11 +37,7 @@ public class JdbcUsersTokensRepository implements UsersTokensRepository {
 
     @Override
     public Integer getUserIdForToken(String token) {
-        try {
-            return jdbc.queryForObject("select * from UsersTokens where user_token=?", this::mapRowToUserId, token);
-        } catch (Exception e) {
-            return null;
-        }
+        return jdbc.queryForObject("select * from UsersTokens where user_token=?", this::mapRowToUserId, token);
     }
 
     private int mapRowToUserId(ResultSet rs, int rowNum) throws SQLException {

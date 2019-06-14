@@ -14,6 +14,8 @@ public interface UsersService {
 
     void logout(UserToken userToken);
 
+    void isUserTokenValid(UserToken token);
+
     User getUser(int id);
 
     User getUser(HttpServletRequest request);

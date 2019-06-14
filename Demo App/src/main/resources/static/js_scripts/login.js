@@ -1,3 +1,18 @@
+window.onload = function () {
+    document.getElementById("username").addEventListener("keydown", (e) => {
+        checkEnterLogin(e);
+    });
+    document.getElementById("password").addEventListener("keydown", (e) => {
+        checkEnterLogin(e);
+    })
+};
+
+function checkEnterLogin(e) {
+    if (e.key === 'Enter') {
+        login();
+    }
+}
+
 function login() {
     $.ajax({
         url: "/users/login",

@@ -1,7 +1,7 @@
 package demoShop.api.repositories;
 
 public interface UsersTokensRepository {
-    String createTokenFor(int id);
+    void addTokenFor(int id, String token);
 
     void deleteUserToken(int id);
 

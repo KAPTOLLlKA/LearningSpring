@@ -30,6 +30,11 @@ public class JdbcTopicsRepository implements TopicsRepository {
     }
 
     @Override
+    public Collection<Topic> searchTopicByTitle(String title) {
+        return jdbc.query("select * from Topics where title ilike ?", this::mapRowToTopic,"%" +  title + "%");
+    }
+
+    @Override
     public void updateTopic(Topic topic) {
         jdbc.update("update Topics set title=?, content=?, posted_by=?, posted_at=? where id=?",
                 topic.getTitle(),

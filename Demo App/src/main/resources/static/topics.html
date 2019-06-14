@@ -11,9 +11,21 @@
     <script type="text/javascript" src="js_scripts/logout.js"></script>
 </head>
 <body>
-<button type="button" id="post" onclick="window.location = '/add_topic.html'">New post</button>
 <button type="button" id="logout" onclick="logout()">Logout</button>
+<br>
+<br>
 <button type="button" id="user" onclick="window.location = '/user.html'">My account</button>
-<div id="topics" style="height: 100%; width: 50%; overflow: auto"></div>
+<br>
+<br>
+<button type="button" id="post" onclick="window.location = '/add_topic.html'">New post</button>
+<br>
+<br>
+<label>
+    <input type="search" id="search" placeholder="Search for topic"/>
+</label>
+<button type="button" onclick="searchTopic()">Search</button>
+<br>
+<br>
+<div id="topics" style="width: 50%; overflow: auto"></div>
 </body>
 </html>

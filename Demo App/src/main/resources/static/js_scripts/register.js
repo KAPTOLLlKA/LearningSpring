@@ -1,3 +1,27 @@
+window.onload = function () {
+    document.getElementById("username").addEventListener("keydown", (e) => {
+        checkEnterRegister(e);
+    });
+    document.getElementById("mail").addEventListener("keydown", (e) => {
+        checkEnterRegister(e);
+    });
+    document.getElementById("password").addEventListener("keydown", (e) => {
+        checkEnterRegister(e);
+    });
+    document.getElementById("re-type").addEventListener("keydown", (e) => {
+        checkEnterRegister(e);
+    });
+    document.getElementById("about").addEventListener("keydown", (e) => {
+        checkEnterRegister(e);
+    });
+};
+
+function checkEnterRegister(e) {
+    if (e.key === 'Enter') {
+        register();
+    }
+}
+
 function register() {
     let pass = $('#password').val();
     let re_pass = $('#re-type').val();

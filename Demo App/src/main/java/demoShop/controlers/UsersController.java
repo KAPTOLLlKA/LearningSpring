@@ -25,6 +25,11 @@ public class UsersController {
         return usersService.getAllUsers();
     }
 
+    @PostMapping("is_valid")
+    public void isUserValid(@RequestBody UserToken userToken) {
+        usersService.isUserTokenValid(userToken);
+    }
+
     @GetMapping("/id")
     public User getUser(HttpServletRequest request) {
         return usersService.getUser(request);

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Register Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script type="text/javascript" src="js_scripts/register.js"></script>
     <script type="text/javascript" src="js_scripts/check_login.js"></script>
+    <script type="text/javascript" src="js_scripts/register.js"></script>
     <script type="text/javascript" src="js_scripts/get_cookie.js"></script>
 </head>
 <body>
@@ -13,19 +13,19 @@
 <hr>
 <p>*-s are mandatory</p>
 <label>
-    <input id="username" type="text" placeholder="username*"/>
+    <input id="username" type="text" placeholder="username*" onkeydown="if (e.key === 'Enter') register()"/>
     <br>
     <br>
-    <input id="mail" type="text" placeholder="email*"/>
+    <input id="mail" type="text" placeholder="email*" onkeydown="if (e.key === 'Enter') register()"/>
     <br>
     <br>
-    <input id="password" type="password" placeholder="password*"/>
+    <input id="password" type="password" placeholder="password*" onkeydown="if (e.key === 'Enter') register()"/>
     <br>
     <br>
-    <input id="re-type" type="password" placeholder="re-type password*"/>
+    <input id="re-type" type="password" placeholder="re-type password*" onkeydown="if (e.key === 'Enter') register()"/>
     <br>
     <br>
-    <input id="about" type="text" placeholder="about you"/>
+    <input id="about" type="text" placeholder="about you" onkeydown="if (e.key === 'Enter') register()"/>
 </label>
 <br>
 <br>

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/topics")
+@RequestMapping("/topics")//Finish with topic editing
 public class TopicsController {
     private final TopicsService topicsService;
 
@@ -20,6 +20,11 @@ public class TopicsController {
     @GetMapping
     public Collection<Topic> getAllTopics() {
         return topicsService.getAllTopics();
+    }
+
+    @GetMapping("search/{search_for}")
+    public Collection<Topic> searchForTopic(@PathVariable String search_for) {
+        return topicsService.searchTopics(search_for);
     }
 
     @GetMapping("/{id}")

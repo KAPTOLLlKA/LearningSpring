@@ -9,11 +9,32 @@ window.onload = function () {
             $('#mail_c').html("Current mail: " + user.mail);
             $('#about_c').html("About you: " + user.about);
         },
-        error: function (jqXHR) {
-            $('#wrong').html(JSON.parse(jqXHR.responseText).message);
+        error: function () {
+            window.location = "/login.html";
         }
-    })
+    });
+    document.getElementById("username").addEventListener("keydown", (e) => {
+        checkEnterUpdate(e);
+    });
+    document.getElementById("mail").addEventListener("keydown", (e) => {
+        checkEnterUpdate(e);
+    });
+    document.getElementById("password").addEventListener("keydown", (e) => {
+        checkEnterUpdate(e);
+    });
+    document.getElementById("re-type").addEventListener("keydown", (e) => {
+        checkEnterUpdate(e);
+    });
+    document.getElementById("about").addEventListener("keydown", (e) => {
+        checkEnterUpdate(e);
+    });
 };
+
+function checkEnterUpdate(e) {
+    if (e.key === 'Enter') {
+        update_user();
+    }
+}
 
 function update_user() {
     let pass = $('#password').val();

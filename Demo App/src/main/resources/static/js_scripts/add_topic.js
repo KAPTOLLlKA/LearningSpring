@@ -1,3 +1,11 @@
+window.onload = function () {
+    document.getElementById("title").addEventListener("keydown", (e) => {
+        if (e.key === 'Enter') {
+            addTopic();
+        }
+    });
+};
+
 function addTopic() {
     $.ajax({
         url: "/topics/add",

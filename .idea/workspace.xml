@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6adcef77-f122-41fc-891f-bd35e96d93fd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Demo App/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/out/production/resources/static/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/out/production/resources/static/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/repositories/TopicsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/repositories/TopicsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/services/TopicsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/services/TopicsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/controlers/TopicsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/controlers/TopicsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/data/title/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/data/topic/Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/repositories/JdbcTopicsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/repositories/JdbcTopicsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/services/JdbcRepositoryTopicsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/services/JdbcRepositoryTopicsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/sql_commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/sql_commands.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/check_logout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/repositories/UsersTokensRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/repositories/UsersTokensRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/services/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/services/UsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/configs/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/configs/Configs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/controlers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/controlers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/repositories/JdbcUsersTokensRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/repositories/JdbcUsersTokensRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/services/JdbcRepositoryUsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/services/JdbcRepositoryUsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/add_topic.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/add_topic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/check_login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/check_login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/get_topics.js" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/get_topics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/update_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/update_user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/topics.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/topics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/user.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +41,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -111,10 +114,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -147,11 +152,12 @@
       <workItem from="1560339420389" duration="9000" />
       <workItem from="1560339444207" duration="253000" />
       <workItem from="1560341358111" duration="40000" />
+      <workItem from="1560501770208" duration="19000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302000" />
+    <option name="totallyTimeSpent" value="321000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />

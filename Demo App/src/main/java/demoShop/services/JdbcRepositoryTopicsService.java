@@ -2,6 +2,7 @@ package demoShop.services;
 
 import demoShop.data.topic.Topic;
 import demoShop.api.services.TopicsService;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 import demoShop.api.repositories.UsersRepository;
 import demoShop.api.repositories.TopicsRepository;
@@ -9,7 +10,7 @@ import demoShop.api.repositories.UsersTokensRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Date;
-import java.util.Collection;
+import java.util.*;
 
 @Component
 public class JdbcRepositoryTopicsService implements TopicsService {
@@ -28,6 +29,20 @@ public class JdbcRepositoryTopicsService implements TopicsService {
     @Override
     public Collection<Topic> getAllTopics() {
         return topicsRepo.getAllTopics();
+    }
+
+    @Override
+    public Collection<Topic> searchTopics(String searchFor) {
+        if (searchFor == null || searchFor.isEmpty()) return topicsRepo.getAllTopics();
+        String[] titles = searchFor.split("\\+");
+        Set<Topic> topics = new HashSet<>();
+        for (String title : titles) {
+            try {
+                topics.addAll(topicsRepo.searchTopicByTitle(title));
+            } catch (DataAccessException ignored) {
+            }
+        }
+        return topics;
     }
 
     @Override
