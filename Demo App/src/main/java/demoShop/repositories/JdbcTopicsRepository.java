@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 
 @Component
 public class JdbcTopicsRepository implements TopicsRepository {
@@ -21,7 +22,7 @@ public class JdbcTopicsRepository implements TopicsRepository {
 
     @Override
     public Collection<Topic> getAllTopics() {
-        return jdbc.query("select * from Topics", this::mapRowToTopic);
+        return jdbc.query("select * from Topics order by posted_at", this::mapRowToTopic);
     }
 
     @Override
@@ -31,7 +32,13 @@ public class JdbcTopicsRepository implements TopicsRepository {
 
     @Override
     public Collection<Topic> searchTopicByTitle(String title) {
-        return jdbc.query("select * from Topics where title ilike ?", this::mapRowToTopic,"%" +  title + "%");
+        return jdbc.query("select * from Topics where title ilike ?", this::mapRowToTopic, "%" + title + "%");
+    }
+
+    @Override
+    public int getTopicIdForUsername(String username) {
+        List<Topic> topics = jdbc.query("select * from Topics where posted_by=?", this::mapRowToTopic, username);
+        return topics.get(topics.size() - 1).getId();
     }
 
     @Override

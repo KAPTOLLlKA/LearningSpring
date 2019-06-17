@@ -2,6 +2,7 @@ package demoShop.api.services;
 
 import demoShop.data.topic.Topic;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 
 public interface TopicsService {

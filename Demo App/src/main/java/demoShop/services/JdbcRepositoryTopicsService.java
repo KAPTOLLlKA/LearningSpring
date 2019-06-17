@@ -2,15 +2,15 @@ package demoShop.services;
 
 import demoShop.data.topic.Topic;
 import demoShop.api.services.TopicsService;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 import demoShop.api.repositories.UsersRepository;
 import demoShop.api.repositories.TopicsRepository;
+import org.springframework.dao.DataAccessException;
 import demoShop.api.repositories.UsersTokensRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.sql.Date;
 import java.util.*;
+import java.sql.Date;
 
 @Component
 public class JdbcRepositoryTopicsService implements TopicsService {
@@ -61,6 +61,9 @@ public class JdbcRepositoryTopicsService implements TopicsService {
     @Override
     public void updateTopic(Topic topic) {
         topic.setPostedAt(new Date(System.currentTimeMillis()));
+        String usernameByToken = usersRepo.getUser(usersTokensRepo.getUserIdForToken(topic.getPostedBy())).getUsername();
+        topic.setPostedBy(usernameByToken);
+        topic.setId(topicsRepo.getTopicIdForUsername(topic.getPostedBy()));
         topicsRepo.updateTopic(topic);
     }
 }

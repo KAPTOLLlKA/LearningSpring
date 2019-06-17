@@ -1,7 +1,20 @@
 window.onload = function () {
-    document.getElementById("title").addEventListener("keydown", (e) => {
-        if (e.key === 'Enter') {
-            addTopic();
+    $.ajax({
+        url: "/users/is_valid",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+            token: getCookie("user_token")
+        }),
+        success: function() {
+            document.getElementById("title").addEventListener("keydown", (e) => {
+                if (e.key === 'Enter') {
+                    addTopic();
+                }
+            });
+        },
+        error: function () {
+            window.location = "/login.html";
         }
     });
 };

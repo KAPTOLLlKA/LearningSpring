@@ -11,6 +11,8 @@ public interface TopicsRepository {
 
     Collection<Topic> searchTopicByTitle(String title);
 
+    int getTopicIdForUsername(String title);
+
     void updateTopic(Topic topic);
 
     void addTopic(Topic topic);

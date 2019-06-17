@@ -1,10 +1,23 @@
 window.onload = function () {
-    document.getElementById("username").addEventListener("keydown", (e) => {
-        checkEnterLogin(e);
+    $.ajax({
+        url: "/users/is_valid",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+            token: getCookie("user_token")
+        }),
+        success: function () {
+            window.location = "/topics.html";
+        },
+        error: function () {
+            document.getElementById("username").addEventListener("keydown", (e) => {
+                checkEnterLogin(e);
+            });
+            document.getElementById("password").addEventListener("keydown", (e) => {
+                checkEnterLogin(e);
+            })
+        }
     });
-    document.getElementById("password").addEventListener("keydown", (e) => {
-        checkEnterLogin(e);
-    })
 };
 
 function checkEnterLogin(e) {

@@ -1,18 +1,31 @@
 window.onload = function () {
-    document.getElementById("username").addEventListener("keydown", (e) => {
-        checkEnterRegister(e);
-    });
-    document.getElementById("mail").addEventListener("keydown", (e) => {
-        checkEnterRegister(e);
-    });
-    document.getElementById("password").addEventListener("keydown", (e) => {
-        checkEnterRegister(e);
-    });
-    document.getElementById("re-type").addEventListener("keydown", (e) => {
-        checkEnterRegister(e);
-    });
-    document.getElementById("about").addEventListener("keydown", (e) => {
-        checkEnterRegister(e);
+    $.ajax({
+        url: "/users/is_valid",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+            token: getCookie("user_token")
+        }),
+        success: function () {
+            window.location = "/topics.html";
+        },
+        error: function () {
+            document.getElementById("username").addEventListener("keydown", (e) => {
+                checkEnterRegister(e);
+            });
+            document.getElementById("mail").addEventListener("keydown", (e) => {
+                checkEnterRegister(e);
+            });
+            document.getElementById("password").addEventListener("keydown", (e) => {
+                checkEnterRegister(e);
+            });
+            document.getElementById("re-type").addEventListener("keydown", (e) => {
+                checkEnterRegister(e);
+            });
+            document.getElementById("about").addEventListener("keydown", (e) => {
+                checkEnterRegister(e);
+            });
+        }
     });
 };
 
