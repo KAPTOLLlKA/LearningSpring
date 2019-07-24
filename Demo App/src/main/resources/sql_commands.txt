@@ -3,7 +3,7 @@ create table if not exists Users
     id       serial primary key,
     password varchar(50)  not null,
     username varchar(20)  unique not null,
-    mail     varchar(100) not null,
+    email     varchar(100) not null,
     about    varchar(500)
 );
 
@@ -25,15 +25,15 @@ create table if not exists Topics
     posted_at timestamp not null
 );
 
-insert into Users (password, username, mail, about)
+insert into Users (password, username, email, about)
 values ('password1', 'Thor', 'mjolnir@gmail.com', 'God with best hairs in galaxy!');
-insert into Users (password, username, mail, about)
+insert into Users (password, username, email, about)
 values ('password2', 'Loki', 'loki@gmail.com', 'You do not know me');
-insert into Users (password, username, mail)
-values ('password3', 'BlackWidow', 'black_widow@mail.ru');
-insert into Users (password, username, mail, about)
+insert into Users (password, username, email)
+values ('password3', 'BlackWidow', 'black_widow@email.ru');
+insert into Users (password, username, email, about)
 values ('password4', 'IronMan', 'jarvis@gmail.com', 'A genius, billionaire, playboy, philanthropist');
-insert into Users (password, username, mail, about)
+insert into Users (password, username, email, about)
 values ('password5', 'Tchala', 'vakanda@gmail.com', 'For Vakanda!');
-insert into Users (password, username, mail, about)
+insert into Users (password, username, email, about)
 values ('password6', 'CaptainAmerica', 'discipline_and_justice@gmail.com', 'Guy, that was in a cube of ice for 70 years.');

@@ -2,21 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6adcef77-f122-41fc-891f-bd35e96d93fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/check_logout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/repositories/UsersTokensRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/repositories/UsersTokensRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/services/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/services/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/configs/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/configs/Configs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/controlers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/controlers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/repositories/JdbcUsersTokensRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/repositories/JdbcUsersTokensRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/services/JdbcRepositoryUsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/services/JdbcRepositoryUsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/add_topic.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/add_topic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/check_login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/check_login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/get_topics.js" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/get_topics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/update_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/update_user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/messages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/messages.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/DemoMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/DemoMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/repositories/TopicsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/api/repositories/TopicsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/repositories/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/api/repositories/UsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/repositories/UsersTokensRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/api/repositories/UsersTokensRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/services/InterceptorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/api/services/InterceptorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/services/TopicsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/api/services/TopicsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/api/services/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/api/services/UsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/configs/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/configs/Configs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/controlers/TopicsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/controlers/TopicsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/controlers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/controlers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/data/topic/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/data/topic/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/data/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/data/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/data/user/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/data/user/UserCredentials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/data/user/UserToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/data/user/UserToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/exceptions/NotAllFieldsFilled.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/exceptions/NotAllFieldsFilled.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/exceptions/UnauthorizedEcxeption.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/exceptions/UnauthorizedEcxeption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/exceptions/UsernameIsTakenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/exceptions/UsernameIsTakenException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/exceptions/WrongCredentialsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/exceptions/WrongCredentialsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/interceptors/HomeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/interceptors/HomeInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/repositories/JdbcTopicsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/repositories/JdbcTopicsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/repositories/JdbcUsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/repositories/JdbcUsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/repositories/JdbcUsersTokensRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/repositories/JdbcUsersTokensRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/services/JdbcRepositoryTopicsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/services/JdbcRepositoryTopicsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/java/demoShop/services/JdbcRepositoryUsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/java/demo/services/JdbcRepositoryUsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/sql_commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/sql_commands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/topics.js" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/js_scripts/topics.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/topics.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/topics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Demo App/src/main/resources/static/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/main/resources/static/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/test/java/demoAppTest/DemoMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/test/java/demoAppTest/DemoMainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo App/src/test/java/demoAppTest/HomeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Demo App/src/test/java/demoAppTest/HomeControllerTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +48,58 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/Demo App/build.gradle">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1907669938">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Demo App/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="63" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
@@ -41,6 +112,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -64,14 +136,14 @@
               <item name="LearningSpring" type="462c0819:PsiDirectoryNode" />
               <item name="Demo App" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LearningSpring" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearningSpring" type="462c0819:PsiDirectoryNode" />
               <item name="Demo App" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -79,42 +151,14 @@
               <item name="LearningSpring" type="462c0819:PsiDirectoryNode" />
               <item name="Demo App" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demoAppTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearningSpring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearningSpring" type="462c0819:PsiDirectoryNode" />
-              <item name="Demo App" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearningSpring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearningSpring" type="462c0819:PsiDirectoryNode" />
-              <item name="Demo App" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LearningSpring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearningSpring" type="462c0819:PsiDirectoryNode" />
-              <item name="Demo App" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -122,7 +166,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../WebstormProjects/LearningAngular" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -153,16 +197,18 @@
       <workItem from="1560339444207" duration="253000" />
       <workItem from="1560341358111" duration="40000" />
       <workItem from="1560501770208" duration="19000" />
+      <workItem from="1561977809331" duration="186000" />
+      <workItem from="1563526636322" duration="21000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321000" />
+    <option name="totallyTimeSpent" value="528000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18124342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -171,7 +217,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -181,11 +227,12 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.32995737" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -195,12 +242,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Demo App/src/test/resources/static/home.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Demo App/src/test/resources/static/images/logo.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Demo App/src/test/java/demoAppTest/DemoMainTest.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Demo App/src/main/java/demoShop/interceptors/HomeInterceptor.java" />
+    <entry file="file://$PROJECT_DIR$/Demo App/src/main/java/demoShop/configs/Configs.java" />
+    <entry file="file://$PROJECT_DIR$/Demo App/src/main/java/demoShop/DemoMain.java" />
+    <entry file="file://$PROJECT_DIR$/Demo App/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="63" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

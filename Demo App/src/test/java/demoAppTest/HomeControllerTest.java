@@ -1,8 +1,8 @@
 package demoAppTest;
 
 import org.junit.Test;
-import demoShop.DemoMain;
-import demoShop.controlers.UsersController;
+import demo.WebAppMain;
+import demo.controlers.UsersController;
 import org.junit.runner.RunWith;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(UsersController.class)
-@ContextConfiguration(classes = DemoMain.class)
+@ContextConfiguration(classes = WebAppMain.class)
 public class HomeControllerTest {
     @Autowired
     private MockMvc mockMvc;
