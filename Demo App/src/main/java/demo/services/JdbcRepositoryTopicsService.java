@@ -10,9 +10,7 @@ import demo.api.repositories.UsersTokensRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.*;
-import java.sql.Date;
 
 @Component
 public class JdbcRepositoryTopicsService implements TopicsService {
@@ -21,7 +19,9 @@ public class JdbcRepositoryTopicsService implements TopicsService {
     private UsersTokensRepository usersTokensRepo;
 
     @Autowired
-    public JdbcRepositoryTopicsService(UsersRepository usersRepo, TopicsRepository topicsRepo, UsersTokensRepository usersTokensRepo) {
+    public JdbcRepositoryTopicsService(UsersRepository usersRepo,
+                                       TopicsRepository topicsRepo,
+                                       UsersTokensRepository usersTokensRepo) {
         this.usersRepo = usersRepo;
         this.topicsRepo = topicsRepo;
         this.usersTokensRepo = usersTokensRepo;
@@ -34,12 +34,17 @@ public class JdbcRepositoryTopicsService implements TopicsService {
     }
 
     @Override
+    public Collection<Topic> getFromWithOffset(int offset, int size) {
+        return topicsRepo.getFromWithOffset(offset, size);
+    }
+
+    @Override
     public Collection<Topic> searchTopics(String searchFor) {
         if (searchFor == null || searchFor.isEmpty()) return topicsRepo.getAllTopics();
         String[] titles = searchFor.split("\\+");
         Set<Topic> topics = new HashSet<>();
         try {
-            Arrays.stream(titles).forEach(title -> topics.addAll(topicsRepo.searchTopicByTitle(title)));
+            Arrays.stream(titles).forEach(title -> topics.addAll(topicsRepo.searchTopic(title)));
         } catch (DataAccessException ignored) {}
         return topics;
     }
@@ -51,6 +56,9 @@ public class JdbcRepositoryTopicsService implements TopicsService {
 
     @Override
     public void addTopic(Topic topic) {
+        if (topic.getTitle() == null || topic.getTitle().isEmpty()) {
+            throw new RuntimeException("Title shouldn't be empty");
+        }
         topic.setPostedAt(new Timestamp(System.currentTimeMillis()));
         String usernameByToken = usersRepo.getUser(usersTokensRepo.getUserIdForToken(topic.getPostedBy())).getUsername();
         topic.setPostedBy(usernameByToken);
@@ -59,6 +67,9 @@ public class JdbcRepositoryTopicsService implements TopicsService {
 
     @Override
     public void updateTopic(Topic topic) {
+        if (topic.getTitle() == null || topic.getTitle().isEmpty()) {
+            throw new RuntimeException("Title shouldn't be empty");
+        }
         topic.setPostedAt(new Timestamp(System.currentTimeMillis()));
         String usernameByToken = usersRepo.getUser(usersTokensRepo.getUserIdForToken(topic.getPostedBy())).getUsername();
         topic.setPostedBy(usernameByToken);

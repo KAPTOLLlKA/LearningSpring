@@ -7,9 +7,11 @@ import java.util.Collection;
 public interface TopicsRepository {
     Collection<Topic> getAllTopics();
 
+    Collection<Topic> getFromWithOffset(int offset, int size);
+
     Topic getTopic(int id);
 
-    Collection<Topic> searchTopicByTitle(String title);
+    Collection<Topic> searchTopic(String searchFor);
 
     int getTopicIdForUsername(String title);
 

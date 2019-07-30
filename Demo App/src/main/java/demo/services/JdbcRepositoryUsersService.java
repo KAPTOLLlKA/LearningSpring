@@ -1,5 +1,6 @@
 package demo.services;
 
+import demo.api.repositories.SubscriptionsRepository;
 import demo.data.user.User;
 import demo.data.user.UserCredentials;
 import demo.data.user.UserForUpdate;
@@ -16,15 +17,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class JdbcRepositoryUsersService implements UsersService {
     private final UsersRepository userRepo;
     private final UsersTokensRepository usersTokensRepo;
+    private final SubscriptionsRepository subscriptionsRepo;
 
     @Autowired
-    public JdbcRepositoryUsersService(UsersRepository userRepo, UsersTokensRepository usersTokensRepo) {
+    public JdbcRepositoryUsersService(UsersRepository userRepo,
+                                      UsersTokensRepository usersTokensRepo,
+                                      SubscriptionsRepository subscriptionsRepo) {
         this.userRepo = userRepo;
         this.usersTokensRepo = usersTokensRepo;
+        this.subscriptionsRepo = subscriptionsRepo;
     }
 
     @Override
@@ -106,5 +112,23 @@ public class JdbcRepositoryUsersService implements UsersService {
             user.setPassword(userForUpdate.getPassword());
         }
         userRepo.updateUser(user);
+    }
+
+    @Override
+    public void subscribeUserToUser(int userId, int subToId) {
+        subscriptionsRepo.subscribeUserToUser(userId, subToId);
+    }
+
+    @Override
+    public void unsubscribeUserFromUser(int userId, int subFromId) {
+        subscriptionsRepo.unsubscribeUserFromUser(userId, subFromId);
+    }
+
+    @Override
+    public Collection<User> getUserSubscriptions(int userId) {
+        return subscriptionsRepo.getUserSubscriptions(userId)
+                .stream()
+                .map(userRepo::getUser)
+                .collect(Collectors.toList());
     }
 }

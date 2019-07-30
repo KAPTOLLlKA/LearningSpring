@@ -24,4 +24,10 @@ public interface UsersService {
     void registerUser(User user);
 
     void updateUser(UserForUpdate userForUpdate, HttpServletRequest request);
+
+    void subscribeUserToUser(int userId, int subToId);
+
+    void unsubscribeUserFromUser(int userId, int subFromId);
+
+    Collection<User> getUserSubscriptions(int userId);
 }

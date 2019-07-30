@@ -1,10 +1,7 @@
 package demo.controlers;
 
-import demo.data.user.User;
-import demo.data.user.UserCredentials;
+import demo.data.user.*;
 import demo.api.services.UsersService;
-import demo.data.user.UserForUpdate;
-import demo.data.user.UserToken;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -55,5 +52,20 @@ public class UsersController {
     @PostMapping("/logout")
     public void logout(@RequestBody UserToken userToken) {
         usersService.logout(userToken);
+    }
+
+    @PostMapping("/subscribe")
+    public void subscribeUserToUser(@RequestParam Subscription subscription) {
+        usersService.subscribeUserToUser(subscription.getUserId(), subscription.getSubId());
+    }
+
+    @PostMapping("/unsubscribe")
+    public void unsubscribeUserFromUser(@RequestParam Subscription subscription) {
+        usersService.unsubscribeUserFromUser(subscription.getUserId(), subscription.getSubId());
+    }
+
+    @GetMapping("/get_subscriptions/{userId}")
+    public Collection<User> getUserSubscriptions(@PathVariable Integer userId) {
+        return usersService.getUserSubscriptions(userId);
     }
 }

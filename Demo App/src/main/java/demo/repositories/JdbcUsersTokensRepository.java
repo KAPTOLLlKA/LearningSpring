@@ -19,7 +19,7 @@ public class JdbcUsersTokensRepository implements UsersTokensRepository {
 
     @Override
     public void addTokenFor(int id, String token) {
-        jdbc.update("insert into UsersTokens (user_id, user_token) values (?, ?)",
+        jdbc.update("INSERT INTO UsersTokens (user_id, user_token) VALUES (?, ?)",
                 id,
                 token
         );
@@ -27,17 +27,17 @@ public class JdbcUsersTokensRepository implements UsersTokensRepository {
 
     @Override
     public void deleteUserToken(int id) {
-        jdbc.update("delete from UsersTokens where user_id=?", id);
+        jdbc.update("DELETE FROM UsersTokens WHERE user_id=?", id);
     }
 
     @Override
     public void deleteUserToken(String token) {
-        jdbc.update("delete from UsersTokens where user_token=?", token);
+        jdbc.update("DELETE FROM UsersTokens WHERE user_token=?", token);
     }
 
     @Override
     public Integer getUserIdForToken(String token) {
-        return jdbc.queryForObject("select * from UsersTokens where user_token=?", this::mapRowToUserId, token);
+        return jdbc.queryForObject("SELECT * FROM UsersTokens WHERE user_token=?", this::mapRowToUserId, token);
     }
 
     private int mapRowToUserId(ResultSet rs, int rowNum) throws SQLException {

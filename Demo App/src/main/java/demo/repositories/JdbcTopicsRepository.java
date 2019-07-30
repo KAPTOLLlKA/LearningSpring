@@ -22,28 +22,33 @@ public class JdbcTopicsRepository implements TopicsRepository {
 
     @Override
     public Collection<Topic> getAllTopics() {
-        return jdbc.query("select * from Topics order by posted_at", this::mapRowToTopic);
+        return jdbc.query("SELECT * FROM Topics ORDER BY posted_at DESC", this::mapRowToTopic);
+    }
+
+    @Override
+    public Collection<Topic> getFromWithOffset(int offset, int size) {
+        return jdbc.query("SELECT * FROM Topics ORDER BY posted_at DESC LIMIT ? OFFSET ?", this::mapRowToTopic, size, offset);
     }
 
     @Override
     public Topic getTopic(int id) {
-        return jdbc.queryForObject("select * from Topics where id=?", this::mapRowToTopic, id);
+        return jdbc.queryForObject("SELECT * FROM Topics WHERE id=?", this::mapRowToTopic, id);
     }
 
     @Override
-    public Collection<Topic> searchTopicByTitle(String title) {
-        return jdbc.query("select * from Topics where title ilike ?", this::mapRowToTopic, "%" + title + "%");
+    public Collection<Topic> searchTopic(String searchFor) {
+        return jdbc.query("SELECT * FROM Topics WHERE ((title ILIKE ?) OR (content ILIKE ?))", this::mapRowToTopic, "%" + searchFor + "%", "%" + searchFor + "%");
     }
 
     @Override
     public int getTopicIdForUsername(String username) {
-        List<Topic> topics = jdbc.query("select * from Topics where posted_by=?", this::mapRowToTopic, username);
+        List<Topic> topics = jdbc.query("SELECT * FROM Topics WHERE posted_by=?", this::mapRowToTopic, username);
         return topics.get(topics.size() - 1).getId();
     }
 
     @Override
     public void updateTopic(Topic topic) {
-        jdbc.update("update Topics set title=?, content=?, posted_by=?, posted_at=? where id=?",
+        jdbc.update("UPDATE Topics SET title=?, content=?, posted_by=?, posted_at=? WHERE id=?",
                 topic.getTitle(),
                 topic.getContent(),
                 topic.getPostedBy(),

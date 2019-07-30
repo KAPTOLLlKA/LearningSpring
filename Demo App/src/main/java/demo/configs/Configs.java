@@ -1,5 +1,6 @@
 package demo.configs;
 
+import demo.api.repositories.SubscriptionsRepository;
 import demo.interceptors.HomeInterceptor;
 import demo.api.repositories.UsersRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -56,7 +57,9 @@ public class Configs implements WebMvcConfigurer {
     }
 
     @Bean
-    public JdbcRepositoryUsersService userService(UsersRepository userRepo, UsersTokensRepository usersTokensRepo) {
-        return new JdbcRepositoryUsersService(userRepo, usersTokensRepo);
+    public JdbcRepositoryUsersService userService(UsersRepository userRepo,
+                                                  UsersTokensRepository usersTokensRepo,
+                                                  SubscriptionsRepository subscriptionsRepo) {
+        return new JdbcRepositoryUsersService(userRepo, usersTokensRepo, subscriptionsRepo);
     }
 }

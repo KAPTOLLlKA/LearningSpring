@@ -24,18 +24,18 @@ public class JdbcUsersRepository implements UsersRepository {
 
     @Override
     public Collection<User> getAllUsers() {
-        return jdbc.query("select * from Users", this::mapRowToUser);
+        return jdbc.query("SELECT * FROM Users", this::mapRowToUser);
     }
 
     @Override
     public User getUser(int id) {
-        return jdbc.queryForObject("select * from Users where id=?", this::mapRowToUser, id);
+        return jdbc.queryForObject("SELECT * FROM Users WHERE id=?", this::mapRowToUser, id);
     }
 
     @Override
     public User getUser(String username, String password) {
         try {
-            return jdbc.queryForObject("select * from Users where password=? and username=?", this::mapRowToUser, password, username);
+            return jdbc.queryForObject("SELECT * FROM Users WHERE password=? AND username=?", this::mapRowToUser, password, username);
         } catch (DataAccessException e) {
             return null;
         }
@@ -44,7 +44,7 @@ public class JdbcUsersRepository implements UsersRepository {
     @Override
     public boolean updateUser(User user) {
         try {
-            jdbc.update("update Users set password=?, username=?, email=?, about=? where id=?",
+            jdbc.update("UPDATE Users SET password=?, username=?, email=?, about=? WHERE id=?",
                     user.getPassword(),
                     user.getUsername(),
                     user.getEmail(),
@@ -59,7 +59,7 @@ public class JdbcUsersRepository implements UsersRepository {
     @Override
     public boolean registerUser(User user) {
         try {
-            jdbc.update("insert into Users (password, username, email, about) values (?, ?, ?, ?)",
+            jdbc.update("INSERT INTO Users (password, username, email, about) VALUES (?, ?, ?, ?)",
                     user.getPassword(),
                     user.getUsername(),
                     user.getEmail(),
@@ -73,7 +73,7 @@ public class JdbcUsersRepository implements UsersRepository {
 
     @Override
     public void deleteUser(int id) {
-        jdbc.update("delete from Users where id=?", id);
+        jdbc.update("DELETE FROM Users WHERE id=?", id);
     }
 
     private User mapRowToUser(ResultSet rs, int rowNum) throws SQLException {

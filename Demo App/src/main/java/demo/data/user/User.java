@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
     private int id;
-    @JsonIgnore
-    private String password;
     private String username;
     private String email;
     private String about;
+
+    @JsonIgnore
+    private String password;
+
 
     public User() {
     }

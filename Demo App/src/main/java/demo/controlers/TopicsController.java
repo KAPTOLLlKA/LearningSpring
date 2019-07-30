@@ -23,6 +23,12 @@ public class TopicsController {
         return topicsService.getAllTopics();
     }
 
+    @GetMapping("/{offset}/{size}")
+    public Collection<Topic> getAllTopics(@PathVariable Integer offset,
+                                          @PathVariable Integer size) {
+        return topicsService.getFromWithOffset(offset, size);
+    }
+
     @GetMapping("search/{searchFor}")
     public Collection<Topic> searchForTopic(@PathVariable String searchFor) {
         return topicsService.searchTopics(searchFor);
