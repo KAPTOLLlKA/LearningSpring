@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-public class Configs implements WebMvcConfigurer {
+public class AppConfig implements WebMvcConfigurer {
     private HomeInterceptor interceptor;
 
     @Autowired
@@ -28,12 +28,12 @@ public class Configs implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(interceptor)
-                .addPathPatterns("*/users/**", "*/topics/**")
+                .addPathPatterns("localhost:8080/**")
                 .excludePathPatterns(
-                        "*/users/login",
-                        "*/users/logout",
-                        "*/users/register",
-                        "*/users/is_valid"
+                        "**/users/login",
+                        "**/users/logout",
+                        "**/users/register",
+                        "**/users/is_valid"
                 );
     }
 

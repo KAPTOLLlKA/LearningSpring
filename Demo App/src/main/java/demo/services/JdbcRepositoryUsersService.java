@@ -8,6 +8,7 @@ import demo.data.user.UserToken;
 import demo.api.services.UsersService;
 import demo.exceptions.NotAllFieldsFilled;
 import demo.api.repositories.UsersRepository;
+import demo.exceptions.UnauthorizedException;
 import org.springframework.dao.DataAccessException;
 import demo.exceptions.UsernameIsTakenException;
 import demo.exceptions.WrongCredentialsException;

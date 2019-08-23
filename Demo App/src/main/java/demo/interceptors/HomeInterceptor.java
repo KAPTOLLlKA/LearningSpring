@@ -3,7 +3,7 @@ package demo.interceptors;
 import org.springframework.http.HttpMethod;
 import demo.api.services.InterceptorService;
 import org.springframework.stereotype.Component;
-import demo.exceptions.UnauthorizedEcxeption;
+import demo.exceptions.UnauthorizedException;
 import demo.api.repositories.UsersRepository;
 import demo.api.repositories.UsersTokensRepository;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -31,8 +31,14 @@ public class HomeInterceptor implements InterceptorService, HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        if (request.getMethod().equals(HttpMethod.OPTIONS.toString()) || checkToken(request.getHeader("authorization"))) return true;
-
-        throw new UnauthorizedEcxeption();
+        try {
+            if (request.getMethod().equals(HttpMethod.OPTIONS.toString()) ||
+                    checkToken(request.getHeader("authorization"))) {
+                return true;
+            }
+            throw new UnauthorizedException();
+        } catch (Exception e) {
+            throw new UnauthorizedException();
+        }
     }
 }

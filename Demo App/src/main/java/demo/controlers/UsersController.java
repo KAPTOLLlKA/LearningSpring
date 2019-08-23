@@ -64,7 +64,7 @@ public class UsersController {
         usersService.unsubscribeUserFromUser(subscription.getUserId(), subscription.getSubId());
     }
 
-    @GetMapping("/get_subscriptions/{userId}")
+    @GetMapping("/subscriptions/{userId}")
     public Collection<User> getUserSubscriptions(@PathVariable Integer userId) {
         return usersService.getUserSubscriptions(userId);
     }
