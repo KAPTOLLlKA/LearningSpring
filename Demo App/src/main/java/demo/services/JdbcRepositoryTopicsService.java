@@ -1,16 +1,19 @@
 package demo.services;
 
-import demo.data.topic.Topic;
-import demo.api.services.TopicsService;
-import org.springframework.stereotype.Component;
-import demo.api.repositories.UsersRepository;
 import demo.api.repositories.TopicsRepository;
-import org.springframework.dao.DataAccessException;
+import demo.api.repositories.UsersRepository;
 import demo.api.repositories.UsersTokensRepository;
+import demo.api.services.TopicsService;
+import demo.data.topic.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 @Component
 public class JdbcRepositoryTopicsService implements TopicsService {
@@ -39,14 +42,15 @@ public class JdbcRepositoryTopicsService implements TopicsService {
     }
 
     @Override
-    public Collection<Topic> searchTopics(String searchFor) {
-        if (searchFor == null || searchFor.isEmpty()) return topicsRepo.getAllTopics();
-        String[] titles = searchFor.split("\\+");
-        Set<Topic> topics = new HashSet<>();
-        try {
-            Arrays.stream(titles).forEach(title -> topics.addAll(topicsRepo.searchTopic(title)));
-        } catch (DataAccessException ignored) {}
-        return topics;
+    public Collection<Topic> searchTopics(String searchFor, int size) {
+        if (searchFor == null || searchFor.isEmpty() || size == 0) return topicsRepo.getAllTopics();
+        String[] titles = searchFor.split(" ");
+        return Arrays.stream(titles)
+                .flatMap(title -> topicsRepo.searchTopic(title, size).stream())
+                .distinct()
+                .sorted()
+                .limit(size)
+                .collect(Collectors.toList());
     }
 
     @Override

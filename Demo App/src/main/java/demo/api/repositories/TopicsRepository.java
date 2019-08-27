@@ -11,7 +11,7 @@ public interface TopicsRepository {
 
     Topic getTopic(int id);
 
-    Collection<Topic> searchTopic(String searchFor);
+    Collection<Topic> searchTopic(String searchFor, int size);
 
     int getTopicIdForUsername(String title);
 

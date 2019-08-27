@@ -23,20 +23,21 @@ public class TopicsController {
         return topicsService.getAllTopics();
     }
 
-    @GetMapping("/{offset}/{size}")
-    public Collection<Topic> getAllTopics(@PathVariable Integer offset,
-                                          @PathVariable Integer size) {
-        return topicsService.getFromWithOffset(offset, size);
-    }
-
-    @GetMapping("search/{searchFor}")
-    public Collection<Topic> searchForTopic(@PathVariable String searchFor) {
-        return topicsService.searchTopics(searchFor);
-    }
-
     @GetMapping("/{id}")
     public Topic getTopic(@PathVariable int id) {
         return topicsService.getTopic(id);
+    }
+
+    @PostMapping
+    public Collection<Topic> getTopics(@RequestParam(required = false) Integer offset,
+                                       @RequestParam(required = false) Integer size) {
+        return topicsService.getFromWithOffset(offset, size);
+    }
+
+    @PostMapping("/search")
+    public Collection<Topic> searchForTopic(@RequestParam(required = false) String searchFor,
+                                            @RequestParam(required = false) Integer size) {
+        return topicsService.searchTopics(searchFor, size == null ? 0 : size);
     }
 
     @PostMapping("/add")

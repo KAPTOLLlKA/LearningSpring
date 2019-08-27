@@ -27,7 +27,8 @@ public class JdbcTopicsRepository implements TopicsRepository {
 
     @Override
     public Collection<Topic> getFromWithOffset(int offset, int size) {
-        return jdbc.query("SELECT * FROM Topics ORDER BY posted_at DESC LIMIT ? OFFSET ?", this::mapRowToTopic, size, offset);
+        return jdbc.query("SELECT * FROM Topics ORDER BY posted_at DESC LIMIT ? OFFSET ?",
+                this::mapRowToTopic, size, offset);
     }
 
     @Override
@@ -36,8 +37,9 @@ public class JdbcTopicsRepository implements TopicsRepository {
     }
 
     @Override
-    public Collection<Topic> searchTopic(String searchFor) {
-        return jdbc.query("SELECT * FROM Topics WHERE ((title ILIKE ?) OR (content ILIKE ?))", this::mapRowToTopic, "%" + searchFor + "%", "%" + searchFor + "%");
+    public Collection<Topic> searchTopic(String searchFor, int size) {
+        return jdbc.query("SELECT * FROM Topics WHERE ((title ILIKE ?) OR (content ILIKE ?)) ORDER BY posted_at DESC LIMIT ?", this::mapRowToTopic,
+                "%" + searchFor + "%", "%" + searchFor + "%", size);
     }
 
     @Override

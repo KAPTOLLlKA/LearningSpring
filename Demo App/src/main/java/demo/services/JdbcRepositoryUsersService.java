@@ -16,7 +16,9 @@ import demo.api.repositories.UsersTokensRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -126,10 +128,22 @@ public class JdbcRepositoryUsersService implements UsersService {
     }
 
     @Override
-    public Collection<User> getUserSubscriptions(int userId) {
-        return subscriptionsRepo.getUserSubscriptions(userId)
+    public Collection<User> getUserSubscriptions(int userId, int offset, int size) {
+        return subscriptionsRepo.getUserSubscriptions(userId, offset, size)
                 .stream()
                 .map(userRepo::getUser)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Collection<User> searchUsers(String searchFor, int size) {
+        if (searchFor == null || searchFor.isEmpty() || size == 0) return userRepo.getAllUsers();
+        String[] names = searchFor.split(" ");
+        return Arrays.stream(names)
+                .flatMap(name -> userRepo.searchUsers(name, size).stream())
+                .distinct()
+                .sorted()
+                .limit(size)
                 .collect(Collectors.toList());
     }
 }

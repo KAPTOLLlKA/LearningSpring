@@ -3,7 +3,7 @@ package demo.data.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class User {
+public class User implements Comparable<User> {
     private int id;
     private String username;
     private String email;
@@ -22,6 +22,11 @@ public class User {
         this.username = username;
         this.email = email;
         this.about = about;
+    }
+
+    @Override
+    public int compareTo(User user) {
+        return username.compareTo(user.username);
     }
 
     public int getId() {

@@ -9,7 +9,7 @@ public interface TopicsService {
 
     Collection<Topic> getFromWithOffset(int offset, int size);
 
-    Collection<Topic> searchTopics(String searchFor);
+    Collection<Topic> searchTopics(String searchFor, int size);
 
     Topic getTopic(int id);
 

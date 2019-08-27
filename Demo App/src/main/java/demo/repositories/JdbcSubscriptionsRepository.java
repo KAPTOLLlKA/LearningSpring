@@ -29,8 +29,9 @@ public class JdbcSubscriptionsRepository implements SubscriptionsRepository {
     }
 
     @Override
-    public Collection<Integer> getUserSubscriptions(int userId) {
-        return jdbc.query("SELECT * FROM users_subscriptions WHERE user_id=?", this::mapRowToSubscription, userId);
+    public Collection<Integer> getUserSubscriptions(int userId, int offset, int size) {
+        return jdbc.query("SELECT * FROM users_subscriptions WHERE user_id=? LIMIT ? OFFSET ?",
+                this::mapRowToSubscription, userId, size, offset);
     }
 
     private Integer mapRowToSubscription(ResultSet rs, int rowNum) throws SQLException {

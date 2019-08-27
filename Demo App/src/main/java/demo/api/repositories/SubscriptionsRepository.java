@@ -7,5 +7,5 @@ public interface SubscriptionsRepository {
 
     void unsubscribeUserFromUser(int userId, int unsubscribeFromId);
 
-    Collection<Integer> getUserSubscriptions(int userId);
+    Collection<Integer> getUserSubscriptions(int userId, int offset, int size);
 }

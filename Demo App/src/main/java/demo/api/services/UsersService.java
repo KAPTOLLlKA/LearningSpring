@@ -29,5 +29,7 @@ public interface UsersService {
 
     void unsubscribeUserFromUser(int userId, int subFromId);
 
-    Collection<User> getUserSubscriptions(int userId);
+    Collection<User> getUserSubscriptions(int userId, int offset, int size);
+
+    Collection<User> searchUsers(String searchFor, int size);
 }

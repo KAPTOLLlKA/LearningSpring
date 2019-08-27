@@ -1,9 +1,9 @@
 package demo.controlers;
 
-import demo.data.user.*;
 import demo.api.services.UsersService;
-import org.springframework.web.bind.annotation.*;
+import demo.data.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
@@ -55,17 +55,25 @@ public class UsersController {
     }
 
     @PostMapping("/subscribe")
-    public void subscribeUserToUser(@RequestParam Subscription subscription) {
+    public void subscribeUserToUser(@RequestBody Subscription subscription) {
         usersService.subscribeUserToUser(subscription.getUserId(), subscription.getSubId());
     }
 
     @PostMapping("/unsubscribe")
-    public void unsubscribeUserFromUser(@RequestParam Subscription subscription) {
+    public void unsubscribeUserFromUser(@RequestBody Subscription subscription) {
         usersService.unsubscribeUserFromUser(subscription.getUserId(), subscription.getSubId());
     }
 
-    @GetMapping("/subscriptions/{userId}")
-    public Collection<User> getUserSubscriptions(@PathVariable Integer userId) {
-        return usersService.getUserSubscriptions(userId);
+    @PostMapping("/subscriptions/{userId}")
+    public Collection<User> getUserSubscriptions(@PathVariable Integer userId,
+                                                 @RequestParam Integer offset,
+                                                 @RequestParam Integer size) {
+        return usersService.getUserSubscriptions(userId, offset, size);
+    }
+
+    @PostMapping("/subscriptions/search")
+    public Collection<User> getUserSubscriptions(@RequestParam String searchFor,
+                                                 @RequestParam Integer size) {
+        return usersService.searchUsers(searchFor, size);
     }
 }

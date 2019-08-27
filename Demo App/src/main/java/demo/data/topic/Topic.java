@@ -2,7 +2,7 @@ package demo.data.topic;
 
 import java.sql.Timestamp;
 
-public class Topic {
+public class Topic implements Comparable<Topic> {
     private int id;
     private String title;
     private String content;
@@ -18,6 +18,11 @@ public class Topic {
         this.content = content;
         this.postedBy = postedBy;
         this.postedAt = postedAt;
+    }
+
+    @Override
+    public int compareTo(Topic topic) {
+        return postedAt.compareTo(topic.postedAt) * -1;
     }
 
     public int getId() {

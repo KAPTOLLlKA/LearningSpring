@@ -15,5 +15,7 @@ public interface UsersRepository {
 
     boolean registerUser(User user);
 
+    Collection<User> searchUsers(String searchFor, int size);
+
     void deleteUser(int id);
 }
