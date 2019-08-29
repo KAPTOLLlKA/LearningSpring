@@ -78,7 +78,7 @@ public class JdbcRepositoryUsersService implements UsersService {
             int id = usersTokensRepo.getUserIdForToken(request.getHeader("authorization"));
             return userRepo.getUser(id);
         } catch (DataAccessException e) {
-            throw new RuntimeException("Invalid authorization token");
+            throw new UnauthorizedException("Invalid authorization token");
         }
     }
 
@@ -132,6 +132,7 @@ public class JdbcRepositoryUsersService implements UsersService {
         return subscriptionsRepo.getUserSubscriptions(userId, offset, size)
                 .stream()
                 .map(userRepo::getUser)
+                .sorted()
                 .collect(Collectors.toList());
     }
 

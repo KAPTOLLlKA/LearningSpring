@@ -6,13 +6,13 @@ import demo.api.repositories.UsersTokensRepository;
 import demo.api.services.TopicsService;
 import demo.data.topic.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -43,14 +43,17 @@ public class JdbcRepositoryTopicsService implements TopicsService {
 
     @Override
     public Collection<Topic> searchTopics(String searchFor, int size) {
-        if (searchFor == null || searchFor.isEmpty() || size == 0) return topicsRepo.getAllTopics();
-        String[] titles = searchFor.split(" ");
-        return Arrays.stream(titles)
-                .flatMap(title -> topicsRepo.searchTopic(title, size).stream())
-                .distinct()
-                .sorted()
-                .limit(size)
-                .collect(Collectors.toList());
+        return searchTopics(searchFor, size, SearchType.BOTH);
+    }
+
+    @Override
+    public Collection<Topic> searchTopicsByTitle(String searchFor, int size) {
+        return searchTopics(searchFor, size, SearchType.TITLE);
+    }
+
+    @Override
+    public Collection<Topic> searchTopicsByContent(String searchFor, int size) {
+        return searchTopics(searchFor, size, SearchType.CONTENT);
     }
 
     @Override
@@ -78,5 +81,30 @@ public class JdbcRepositoryTopicsService implements TopicsService {
         String usernameByToken = usersRepo.getUser(usersTokensRepo.getUserIdForToken(topic.getPostedBy())).getUsername();
         topic.setPostedBy(usernameByToken);
         topicsRepo.updateTopic(topic);
+    }
+
+    private Collection<Topic> searchTopics(String searchFor, int size, SearchType searchType) {
+        if (searchFor == null || searchFor.isEmpty() || size == 0) return topicsRepo.getAllTopics();
+        List<String> titles = new ArrayList<>();
+        titles.add(searchFor);
+        titles.addAll(Arrays.asList(searchFor.split(" ")));
+        return titles
+                .stream()
+                .flatMap(title -> {
+                    if (searchType == SearchType.TITLE) {
+                        return topicsRepo.searchTopicsByTitle(title, size).stream();
+                    } else if (searchType == SearchType.CONTENT) {
+                        return topicsRepo.searchTopicsByContent(title, size).stream();
+                    }
+                    return topicsRepo.searchTopics(title, size).stream();
+                })
+                .distinct()
+                .sorted()
+                .limit(size)
+                .collect(Collectors.toList());
+    }
+
+    private enum SearchType {
+        BOTH, TITLE, CONTENT
     }
 }

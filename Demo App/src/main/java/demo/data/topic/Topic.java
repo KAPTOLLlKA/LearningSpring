@@ -22,7 +22,7 @@ public class Topic implements Comparable<Topic> {
 
     @Override
     public int compareTo(Topic topic) {
-        return postedAt.compareTo(topic.postedAt) * -1;
+        return title.length() - topic.title.length();
     }
 
     public int getId() {

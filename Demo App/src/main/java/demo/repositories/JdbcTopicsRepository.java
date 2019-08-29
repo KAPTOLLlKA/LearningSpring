@@ -37,9 +37,21 @@ public class JdbcTopicsRepository implements TopicsRepository {
     }
 
     @Override
-    public Collection<Topic> searchTopic(String searchFor, int size) {
+    public Collection<Topic> searchTopics(String searchFor, int size) {
         return jdbc.query("SELECT * FROM Topics WHERE ((title ILIKE ?) OR (content ILIKE ?)) ORDER BY posted_at DESC LIMIT ?", this::mapRowToTopic,
-                "%" + searchFor + "%", "%" + searchFor + "%", size);
+                searchFor + "%", searchFor + "%", size);
+    }
+
+    @Override
+    public Collection<Topic> searchTopicsByTitle(String searchFor, int size) {
+        return jdbc.query("SELECT * FROM Topics WHERE title ILIKE ? ORDER BY posted_at DESC LIMIT ?", this::mapRowToTopic,
+                searchFor + "%", size);
+    }
+
+    @Override
+    public Collection<Topic> searchTopicsByContent(String searchFor, int size) {
+        return jdbc.query("SELECT * FROM Topics WHERE content ILIKE ? ORDER BY posted_at DESC LIMIT ?", this::mapRowToTopic,
+                searchFor + "%", size);
     }
 
     @Override

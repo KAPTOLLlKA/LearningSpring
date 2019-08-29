@@ -34,10 +34,22 @@ public class TopicsController {
         return topicsService.getFromWithOffset(offset, size);
     }
 
-    @PostMapping("/search")
-    public Collection<Topic> searchForTopic(@RequestParam(required = false) String searchFor,
+    @PostMapping("/search/everything")
+    public Collection<Topic> searchForTopics(@RequestParam(required = false) String searchFor,
                                             @RequestParam(required = false) Integer size) {
         return topicsService.searchTopics(searchFor, size == null ? 0 : size);
+    }
+
+    @PostMapping("/search/title")
+    public Collection<Topic> searchForTopicsByTitle(@RequestParam(required = false) String searchFor,
+                                            @RequestParam(required = false) Integer size) {
+        return topicsService.searchTopicsByTitle(searchFor, size == null ? 0 : size);
+    }
+
+    @PostMapping("/search/content")
+    public Collection<Topic> searchForTopicsByContent(@RequestParam(required = false) String searchFor,
+                                            @RequestParam(required = false) Integer size) {
+        return topicsService.searchTopicsByContent(searchFor, size == null ? 0 : size);
     }
 
     @PostMapping("/add")

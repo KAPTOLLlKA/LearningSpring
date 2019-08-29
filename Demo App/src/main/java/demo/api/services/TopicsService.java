@@ -11,6 +11,10 @@ public interface TopicsService {
 
     Collection<Topic> searchTopics(String searchFor, int size);
 
+    Collection<Topic> searchTopicsByTitle(String searchFor, int size);
+
+    Collection<Topic> searchTopicsByContent(String searchFor, int size);
+
     Topic getTopic(int id);
 
     void addTopic(Topic topic);

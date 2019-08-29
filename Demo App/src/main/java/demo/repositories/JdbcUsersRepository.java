@@ -74,7 +74,7 @@ public class JdbcUsersRepository implements UsersRepository {
     @Override
     public Collection<User> searchUsers(String searchFor, int size) {
         return jdbc.query("SELECT * FROM Users WHERE username ILIKE ? ORDER BY username LIMIT ?", this::mapRowToUser,
-                "%" + searchFor + "%", size);
+                searchFor + "%", size);
     }
 
     @Override
